@@ -23,5 +23,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         URL::forceHttps();
+        config(['view.compiled' => env('VIEW_COMPILED_PATH', '/tmp')]);
+        config(['cache.stores.file.path' => env('CACHE_PATH', '/tmp')]);
+        config(['cache.stores.file.lock_path' => env('CACHE_PATH', '/tmp')]);
     }
 }
